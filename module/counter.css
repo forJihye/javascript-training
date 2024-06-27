@@ -1,0 +1,26 @@
+.counter {
+  width: 1.25em;
+  height: 1.25em;
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 1.25em;
+  text-align: center;
+  overflow: hidden;
+}
+.counter div {
+  width: 1.25em;
+  height: 1.25em;
+  background: salmon;
+  animation: countNumber 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: steps(5);
+}
+
+@keyframes countNumber {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-500%);
+  }
+}

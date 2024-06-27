@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    const ele = (tagName = undefined, attrs = {}, children = []) => {
+      const el = document.createElement(tagName)
+      for (const attrName in attrs) {
+        el.setAttribute(attrName, attrs[attrName])
+      }
+      for (const child of children) el.appendChild(child)
+      return el
+    }
+    ele('div', {}, [ele('h1'), ele('h1'), ele('h1')])
+
+    ele('div', {class: 'flip-number'}, [ele('div', {class: 'fiip-half-top'}), ele('div', {class: 'fiip-half-bottom'})])
+
+    const halfTop = ele('div', {class: 'fiip-half-top'})
+    const halfBot = ele('div', {class: 'fiip-half-bottom'})
+    ele('div', {class: 'flip-number'}, [halfTop, halfBot])
+    console.log(halfTop)
+    */
+
+    const dom = ((tagName, attrs={}, children=[]) => {
+      const el = document.createElement(tagName);
+      for(const attrName in attrs){
+        el.setAttribute(attrName, attrs[attrName])
+      }
+      for(const child of children){
+        el.appendChild(child)
+      }
+      return el;
+    })
+
+    const child1 = dom('div', {"class":"child1"})
+    const child2 = dom('div',{"class":"child2"})
+
+    console.log(dom('h1',{"class":"title title1",}, [child1, child2]))
+  </script>
+</body> 
+</html>

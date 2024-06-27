@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Closure 클로저</title>
+  </head>
+    <button id="toggle">toggle</button>
+    <div class="box" style="width:100px;height:100px;background:red;">box</div>
+    <script>
+      // 클로저가 가장 유용하게 사용되는 상황은 현재 상태를 기억하고 변경된 최신 상태를 유지
+      const toggleBtn = document.getElementById('toggle')
+      const box = document.querySelector('.box')
+
+      const toggle = (function(){
+        let isShow = false
+        
+        return function(){
+          box.style.display = isShow ? 'block':'none'
+          isShow = !isShow
+          console.log(isShow)
+        }
+      })();
+
+      toggleBtn.addEventListener('click',toggle)
+    </script>
+  </body>
+</html>

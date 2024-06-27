@@ -1,0 +1,121 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+  padding: 50px;
+}
+h1 {
+  padding-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  text-transform: uppercase;
+}
+section {
+  margin: 50px 0;
+  text-align: center;
+}
+button {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  background: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+section button {
+  padding: 10px 25px;
+  background: #a3dd82;
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+}
+section button:hover {
+  background: #98d973;
+}
+.popup-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.popup-overlay.show-popup {
+  display: block;
+  opacity: 1;
+}
+.popup-overlay:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.popup-overlay .popup-modal {
+  width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+  background: #fff;
+  border-radius: 5px;
+  display: none;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: 50% 50%;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.popup-overlay.show-popup .popup-modal {
+  display: inline-block;
+  opacity: 1;
+  transform: scale(1);
+  animation: popupAnimateShow 0.4s;
+}
+@keyframes popupAnimateShow{
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.popup-modal .popup-title {
+  margin: 15px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.popup-modal .popup-text {
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+.popup-modal .popup-footer {
+  width: 100%;
+  text-align: right;
+}
+.popup-modal .popup-footer button {
+  padding: 8px 20px;
+  background: #7cd1f9;
+  color: #fff;
+  font-size: 14px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+}
+.popup-modal .popup-footer button:hover {
+  background: #78cbf2;
+}
